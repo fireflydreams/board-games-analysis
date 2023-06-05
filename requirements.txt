@@ -1,1 +1,1 @@
-python -m pip install st_aggrid
+python -m pip install streamlit-aggrid
