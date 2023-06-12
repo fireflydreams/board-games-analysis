@@ -14,6 +14,9 @@ st.sidebar.success('Select a page above.')
 
 st.header("Data Visualization - Continued 📈")
 
+st.markdown("""We've had a look at some initial data analysis, now I'm going to start looking at more indepth 
+            analysis.""")
+
 yearly_release = df.groupby(['yearpublished']).size().reset_index(name='count')
 yearly_release = yearly_release.drop(yearly_release.index[-1])
 yearly_release['yearpublished'] = yearly_release['yearpublished'].astype(int)
@@ -69,4 +72,11 @@ points = alt.Chart(df_most_mechanics).mark_circle(size=100).encode(
 
 st.altair_chart(lines + points, use_container_width=True)
 
-
+st.markdown("""This is an interesting section to look at. Each mechanic has had the proportion of games it is used in 
+            calculated, then the percentage change mapped onto a slope chart. Pale blue is the starting point (ie 2000)
+            and purple is the end point (ie 2020). For the most part, mechanics seen an increase in their usage. This
+            correlates to the idea that games and combining more and more mechanics together. There are a few that need 
+            calling out for their extreme fall from fashion. The first is roll / spin and move. This is a typical 
+            mechanic seen in "classic" games such as Monopoly, Game of Life, Snakes & Ladders etc. In 2000 this mechanic 
+            was used in over 20% of games released that year, in 2020 it was only used in 4%. This is a huge drop in 
+            popularity, meaning alternative methods of movement are being used in games.""")
