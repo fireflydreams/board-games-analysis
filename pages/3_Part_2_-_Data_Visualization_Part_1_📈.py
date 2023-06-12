@@ -282,7 +282,8 @@ df_mechanics_years = df_mechanics_years.explode('mechanics')
 df_mechanics_years = df_mechanics_years.groupby(['yearpublished', 'name']).count().reset_index()
 df_mechanics_years = df_mechanics_years[(df_mechanics_years['yearpublished'] != 'unknown')]
 df_mechanics_years['yearpublished'] = df_mechanics_years['yearpublished'].astype(int)
-df_mechanics_years = df_mechanics_years[(df_mechanics_years['yearpublished'] >= 1950)]
+df_mechanics_years = df_mechanics_years[(df_mechanics_years['yearpublished'] >= 1950)
+                                        & (df_mechanics_years['yearpublished'] <= 2023)]
 df_mechanics_years = df_mechanics_years[(df_mechanics_years['mechanics'] > 0)]
 df_mechanics_years = df_mechanics_years.groupby(['yearpublished']).mean(numeric_only=True).reset_index()
 
@@ -290,8 +291,8 @@ st.subheader('Average Number of Mechanics/Game')
 
 chart = (
     alt.Chart(df_mechanics_years).mark_circle().encode(
-        x=alt.X('yearpublished', title='Release Year', scale=alt.Scale(domain=[1950, 2030])),
-        y=alt.Y('mechanics'),
+        x=alt.X('yearpublished', title='Release Year', scale=alt.Scale(domain=[1950, 2024])),
+        y=alt.Y('mechanics', scale=alt.Scale(domain=[0, 6])),
     )
 )
 st.altair_chart(chart, use_container_width=True)
