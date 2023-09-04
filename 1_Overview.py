@@ -21,3 +21,14 @@ st.markdown("""Both Dinesh Vatvani and Markus Shepherd's scraping of Board Game 
             analysis. I initially tried to update code I found that scraped BGG however I discovered Markus' 
             prescraped data contained much of the information I was interested in, so updated the scraper to pull the 
             last few bits from his public data.""")
+st.markdown("""Some of the questions posed to the data include:
+- What games are the most popular?
+- Have releases of boardgames peaked, or do they continue to rise yearly?
+- How have yearly releases been rated?
+- How has the complexity (number on mechanics) changed in recent years?
+- What is the most used mechanic in games?
+- What is the average number of mechanics in games by yearly release?
+- How have mechanics popularity changed? 2000 vs 2020
+- What are the most prevalent themes in games?
+- What are the average number of themes by game by year?
+- How have the popularity of themes changed? 2000 vs 2020""")
